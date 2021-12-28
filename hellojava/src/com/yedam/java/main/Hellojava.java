@@ -8,6 +8,10 @@ public class Hellojava {
         System.out.println("Lee Hyorim");
         System.out.println("hi");
         
+	system.out.println("안녕");
+		
+		
+	
       
         
 	}
