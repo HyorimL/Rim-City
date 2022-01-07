@@ -78,7 +78,8 @@ public class Quiz04 {
 			num = (int) (Math.random() * 10) + 1 ;
 			System.out.println(num);
 		} while(num != 7);
-			
+		
+		
 			
 				
 				
