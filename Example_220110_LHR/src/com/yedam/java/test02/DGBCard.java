@@ -14,7 +14,7 @@ public class DGBCard extends Card {
 	}
 	
 	public DGBCard(String cardStaff) {
-		this.cardStaff = "신빛용";
+		this.cardStaff = cardStaff;
 		return;
 	}
 

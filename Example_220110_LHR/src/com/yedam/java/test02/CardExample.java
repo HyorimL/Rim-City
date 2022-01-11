@@ -6,10 +6,10 @@ public class CardExample {
 
 
 		//전부 null로 나옴.........
-		TossCard tossCard = new TossCard();
-		tossCard.showCardInfo();
+		TossCard tossCard = new TossCard("신빛용");
+		tossCard.showCardInfo( );
 		
-		DGBCard dgbCard = new DGBCard();
+		DGBCard dgbCard = new DGBCard("신빛용");
 		dgbCard.showCardInfo();
 		
 		

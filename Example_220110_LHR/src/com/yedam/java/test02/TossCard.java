@@ -12,8 +12,8 @@ public class TossCard extends Card {
 		
 	}
 	
-	public TossCard(String cardStanff) {
-		this.cardStaff = "신빛용";
+	public TossCard(String cardStaff) {
+		this.cardStaff = cardStaff;
 		return;
 	}
 

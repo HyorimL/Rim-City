@@ -5,17 +5,17 @@ public class Card {
 	
 	
 	//필드
-	private String cardNo;
-	private String validDate;
-	private String cvc;
+	String cardNo;
+	String validDate;
+	String cvc;
 	
 	
 	
 	//생성자
 	public void Card(String cardNo, String validDate, String cvc) {
-		this.cardNo = "5432-4567-9534-3657";
-		this.validDate = "20251203";
-		this.cvc = "253";
+		this.cardNo = cardNo;
+		this.validDate = validDate;
+		this.cvc = cvc;
 		return;
 	}
 
@@ -41,9 +41,9 @@ public class Card {
 	
 	
 	public void showCardInfo() {
-		System.out.println("카드정보 ( Card NO : " + cardNo 
+		System.out.println("카드정보 (Card NO : " + cardNo 
 				          + ", 유효기간 : " + validDate 
-				          + ", CVC : " + cvc);
+				          + ", CVC : " + cvc + ")");
 	}
 	
 }
