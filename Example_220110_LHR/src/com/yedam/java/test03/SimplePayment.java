@@ -18,9 +18,7 @@ public class SimplePayment implements Payment {
 	
 	@Override
 	public int online(int price) {
-		double dc1 = price * (simplePaymentRatio + Payment.ONLINE_PAYMENT_RATIO);
-		price -= dc1;
-		return price;
+		return (int)(price - price * (simplePaymentRatio + Payment.ONLINE_PAYMENT_RATIO));
 	}
 
 	@Override

@@ -9,15 +9,10 @@ public class DGBCard extends Card {
 	
 	
 	//생성자
-	DGBCard() {
-		
-	}
-	
-	public DGBCard(String cardStaff) {
+	public DGBCard(String cardNo, int validDate, int cvc, String cardStaff) {
+		super(cardNo, validDate, cvc);
 		this.cardStaff = cardStaff;
-		return;
 	}
-
 
 	
 	//메소드

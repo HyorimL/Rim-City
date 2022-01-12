@@ -24,9 +24,7 @@ public class CardPayment implements Payment {
 
 	@Override
 	public int offline(int price) {
-		double dc2 = price * (cardRatio + Payment.OFFLINE_PAYMENT_RATIO);
-		price -= dc2;
-		return price;
+		return (int)(price - price * (cardRatio + Payment.OFFLINE_PAYMENT_RATIO));
 	}
 
 	@Override

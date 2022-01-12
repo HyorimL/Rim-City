@@ -5,18 +5,17 @@ public class Card {
 	
 	
 	//필드
-	String cardNo;
-	String validDate;
-	String cvc;
+	protected String cardNo;
+	protected int validDate;
+	protected int cvc;
 	
 	
 	
 	//생성자
-	public void Card(String cardNo, String validDate, String cvc) {
+	public Card(String cardNo, int validDate, int cvc) {
 		this.cardNo = cardNo;
 		this.validDate = validDate;
 		this.cvc = cvc;
-		return;
 	}
 
 
@@ -28,22 +27,21 @@ public class Card {
 
 
 
-	public String getValidDate() {
+	public int getValidDate() {
 		return validDate;
 	}
 
 
 
-	public String getCvc() {
+	public int getCvc() {
 		return cvc;
 	}
 
 	
 	
 	public void showCardInfo() {
-		System.out.println("카드정보 (Card NO : " + cardNo 
-				          + ", 유효기간 : " + validDate 
-				          + ", CVC : " + cvc + ")");
+		
+		System.out.printf("카드정보 (Card NO : %s, 유효기간 : %d, CVC : %d)\n", cardNo, validDate, cvc);
 	}
 	
 }

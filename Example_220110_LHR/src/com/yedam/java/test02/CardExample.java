@@ -5,11 +5,11 @@ public class CardExample {
 	public static void main(String[] args) {
 
 
-		//전부 null로 나옴.........
-		TossCard tossCard = new TossCard("신빛용");
+		
+		TossCard tossCard = new TossCard();
 		tossCard.showCardInfo( );
 		
-		DGBCard dgbCard = new DGBCard("신빛용");
+		DGBCard dgbCard = new DGBCard();
 		dgbCard.showCardInfo();
 		
 		
