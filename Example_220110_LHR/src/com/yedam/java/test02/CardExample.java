@@ -6,10 +6,10 @@ public class CardExample {
 
 
 		
-		TossCard tossCard = new TossCard();
+		
 		tossCard.showCardInfo( );
 		
-		DGBCard dgbCard = new DGBCard();
+	
 		dgbCard.showCardInfo();
 		
 		
