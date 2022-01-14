@@ -76,6 +76,10 @@ public class BookFrame {
 	//1.전체조회
 	public void selectAllBook() {
 		List<Book> list = dao.selectAll();
+		
+		for(Book book : list) {
+			System.out.println(book);
+		}
 	}
 
 	
