@@ -13,7 +13,11 @@ public class VocaFrame {
 	private Scanner scanner = new Scanner(System.in);
 	
 	
-	public VocaFrame() {
+	public VocaFrame(int result) {
+		
+		
+		
+		if(result == 1) {
 		
 		while(true) {
 			
@@ -24,7 +28,7 @@ public class VocaFrame {
 			//각 메뉴별 기능실행
 			if(menuNo == 1) {
 				//단어입력
-				inputWord();
+				insertWord();
 			} else if(menuNo == 2) {
 				//전체단어조회
 				selectAllWords();
@@ -32,14 +36,14 @@ public class VocaFrame {
 				//단건단어조회
 				selectOneWord();
 			} else if(menuNo == 4) {
+				//암기한 단어 조회
+				learnedList();
+			} else if(menuNo == 5) {
+				//미암기 단어 조회
+				willLearnList();
+			} else if(menuNo == 6) {
 				//단어퀴즈
 				//wordQuiz();
-			} else if(menuNo == 5) {
-				//암기한 단어
-				learnedWordsList();
-			} else if(menuNo == 6) {
-				//미암기 단어
-				willLearnWordsList();
 			} else if(menuNo == 7) {
 				//단어 수정
 				update();
@@ -52,13 +56,18 @@ public class VocaFrame {
 				break;
 			}
 		}
+		} else if (result == 0) {
+			System.out.println("비밀번호를 잘못 입력하였습니다.");
+		} else if (result == -1) {
+			System.out.println("가입된 회원이 아닙니다.");
+		}
 	}
 	
 	
 	public void menuPrint() {
 		
 		System.out.println();
-		System.out.println("1.단어입력 | 2.전체단어보기 | 3.단건단어검색 | 4.단어퀴즈 | 5.암기한 단어 | 6.미암기 단어 | 7.단어수정 | 8.단어삭제 | 9.종료 ");
+		System.out.println("1.단어입력 | 2.전체단어보기 | 3.단건단어보기 | 4.암기단어 | 5.미암기단어 | 6.단어퀴즈 | 7.단어수정 | 8.단어삭제 | 9.종료 ");
 		System.out.print("선택>");
 	}
 	
@@ -72,53 +81,17 @@ public class VocaFrame {
 		return menuNo;
 	}
 	
-	public void inputWord() {
-		//단어와 단어뜻 입력
+	
+	
+	//메뉴1)단어입력
+	public void insertWord() {
 		Vocabulary voca = inputVocabulary();
-		//단어와 단어뜻 등록		
 		dao.insert(voca);
 	}
 	
-	public void selectAllWords() {
-		
-		//전체단어 보기
-		List<Vocabulary> list = dao.selectAll();
-		
-		//전체 단어 출력
-		for(Vocabulary voca : list) {
-			System.out.println(voca);
-		}
-	}
-	
-	public void selectOneWord() {
-		
-	}
-	
-	public void learnedWordsList() {
-		
-	}
-	
-	public void willLearnWordsList() {
-		
-	}
-	
-	public void update() {
-		
-	}
-	
-	public void delete() {
-		
-	}
-	
-	public void end() {
-		
-	}
-	
-	
-	
+	//단어 정보 입력 메서드
 	public Vocabulary inputVocabulary() {
 		Vocabulary voca = new Vocabulary();
-		
 		System.out.print("단어>");
 		voca.setVocaWord(scanner.nextLine());
 		System.out.print("단어뜻>");
@@ -126,6 +99,93 @@ public class VocaFrame {
 		
 		return voca;
 	}
+	
+	
+	//메뉴2)전체단어보기
+	public void selectAllWords() {
+		List<Vocabulary> list = dao.selectAll();
+		for(Vocabulary voca : list) {
+			System.out.println(voca);
+			if(voca == null) {
+				System.out.println("단어장이 비어있습니다.");
+			}
+		}
+	}
+	
+	//메뉴3)단건단어보기
+	public void selectOneWord() {
+		String vocaWord = inputWord();
+		Vocabulary voca = dao.selectOne(vocaWord);
+		if(voca != null) {
+			System.out.println(voca);
+		} else {
+			System.out.println("해당 단어가 존재하지 않습니다.");
+		}
+	}
+	
+	//메뉴6)단어퀴즈
+	public void wordQuiz() {
+		
+	}
+	
+	
+	//메뉴4)암기한 단어 조회
+	public void learnedList() {
+		List<Vocabulary> list = dao.selectAll();
+		for(Vocabulary voca : list) {
+			if(voca.getVocaLearn() == 1) {
+				System.out.println(voca);
+			}
+		}
+	}
+	
+	//메뉴5)미암기 단어 조회
+	public void willLearnList() {
+		List<Vocabulary> list = dao.selectAll();
+		for(Vocabulary voca : list) {
+			if(voca.getVocaLearn() == 0) {
+				System.out.println(voca);
+			}
+		}
+	}
+	
+	//메뉴7)단어 수정
+	public void update() {
+		//수정할 단어 입력
+		Vocabulary voca = inputVocaWord();
+		//단어뜻 수정
+		dao.update(voca);
+	}
+	
+	public Vocabulary inputVocaWord() {
+		Vocabulary voca = new Vocabulary();
+		System.out.print("단어>");
+		voca.setVocaWord(scanner.nextLine());
+		System.out.print("단어뜻>");
+		voca.setVocaMean(scanner.nextLine());
+		return voca;
+	}
+	
+	//메뉴8)단어 삭제
+	public void delete() {
+		//삭제할 단어 입력
+		String vocaWord = inputWord();
+		//단어 삭제
+		dao.delete(vocaWord);
+	}
+	
+	//메뉴9)단어장 종료
+	public void end() {
+		System.out.println("프로그램 종료");
+	}
+	
+	public String inputWord() {
+		String vocaWord = null;
+		System.out.print("단어>");
+		vocaWord = scanner.nextLine();
+		return vocaWord;
+	}
+	
 	
 	
 }

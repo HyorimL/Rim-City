@@ -37,7 +37,7 @@ public class Vocabulary {
 	}
 	@Override
 	public String toString() {
-		return vocaNo + ". " + vocaWord + " : " + vocaMean + " [" + (vocaLearn == 1 ? : "미암기" : "암기") + "]";
+		return vocaWord + " : " + vocaMean + " [" + (vocaLearn == 1 ?  "암기" : "미암기") + "]";
 	}
 	
 	

@@ -44,7 +44,7 @@ public class Library {
 	}
 	
 	public void menuPrint() {
-		System.out.println("1.전제조회 2.단건조회 3.내용검색 4.대여가능 5.책대여 6.책반남 7.책등록 9.종료");
+		System.out.println("1.전체조회 2.단건조회 3.내용검색 4.대여가능 5.책대여 6.책반납 7.책등록 9.종료");
 		System.out.print("선택>");
 	}
 	
@@ -60,7 +60,7 @@ public class Library {
 	
 	
 	public void end() {
-		System.out.println("프로그램 정보");
+		System.out.println("프로그램 종료");
 		
 		
 	}

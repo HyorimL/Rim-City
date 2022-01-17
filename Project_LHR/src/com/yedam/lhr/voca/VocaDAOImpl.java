@@ -106,10 +106,10 @@ public class VocaDAOImpl extends DAO implements VocaDAO {
 	public void update(Vocabulary voca) {
 		try {
 			connect();
-			String update = "UPDATE voca SET voca_word = ? WHERE voca_no = ?";
+			String update = "UPDATE voca SET voca_mean = ? WHERE voca_word = ?";
 			pstmt = conn.prepareStatement(update);
-			pstmt.setString(1, voca.getVocaWord());
-			pstmt.setInt(2, voca.getVocaNo());
+			pstmt.setString(1, voca.getVocaMean());
+			pstmt.setString(2, voca.getVocaWord());
 			
 			int result = pstmt.executeUpdate();
 			
