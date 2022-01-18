@@ -24,7 +24,7 @@ public interface VocaDAO {
 		public void delete(String vocaWord);
 
 	
-	
+		
 	
 	
 

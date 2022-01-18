@@ -81,34 +81,34 @@ public class VocaDAOImpl extends DAO implements VocaDAO {
 	public void insert(Vocabulary voca) {
 		try {
 			connect();
-			String insert = "INSERT INTO voca VALUES(?,?,?,?)";
+			String insert = "INSERT INTO voca (voca_word, voca_mean) VALUES(?,?)";
 			pstmt = conn.prepareStatement(insert);
-			pstmt.setInt(1, voca.getVocaNo());
-			pstmt.setString(2, voca.getVocaWord());
-			pstmt.setString(3, voca.getVocaMean());
-			pstmt.setInt(4, voca.getVocaLearn());
+			
+			pstmt.setString(1, voca.getVocaWord());
+			pstmt.setString(2, voca.getVocaMean());
+			
 			
 			int result = pstmt.executeUpdate();
 			
 			System.out.println(result + "건이 등록되었습니다.");
 			
 		} catch(SQLException e) {
-			
+			e.printStackTrace();
 		} finally {
-			
+			disconnect();
 		}
 
 	}
 
 	
-	//단어수정
+	//암기한단어 업데이트
 	@Override
 	public void update(Vocabulary voca) {
 		try {
 			connect();
-			String update = "UPDATE voca SET voca_mean = ? WHERE voca_word = ?";
+			String update = "UPDATE voca SET voca_learn = ? WHERE voca_word = ?";
 			pstmt = conn.prepareStatement(update);
-			pstmt.setString(1, voca.getVocaMean());
+			pstmt.setInt(1, voca.getVocaLearn());
 			pstmt.setString(2, voca.getVocaWord());
 			
 			int result = pstmt.executeUpdate();

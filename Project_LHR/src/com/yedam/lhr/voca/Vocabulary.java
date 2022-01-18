@@ -35,9 +35,23 @@ public class Vocabulary {
 	public void setVocaLearn(int vocaLearn) {
 		this.vocaLearn = vocaLearn;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public String toString() {
-		return vocaWord + " : " + vocaMean + " [" + (vocaLearn == 1 ?  "암기" : "미암기") + "]";
+		return "[" + vocaNo + "]" + vocaWord + " : " + vocaMean + " [" + (vocaLearn == 0 ?  "미암기" : "암기") + "]";
 	}
 	
 	
