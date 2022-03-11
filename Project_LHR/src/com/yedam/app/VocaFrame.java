@@ -137,10 +137,10 @@ public class VocaFrame {
 				break;
 
 			} else if (choice == answerNum) {
-				System.out.println("정답입니다!");
+				System.out.println("*** 정답입니다! ***");
 				System.out.println("_________________________");
 			} else {
-				System.out.println("땡!");
+				System.out.println("*** 땡! ***");
 				System.out.println("_________________________");
 
 			}
