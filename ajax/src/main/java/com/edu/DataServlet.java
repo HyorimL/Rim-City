@@ -35,7 +35,7 @@ public class DataServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String json = "[{\"name\" : \"HONG\", \"age\" : 20},{\"name\" : \"HWANG\", \"age\" : 30}]";
+		//String json = "[{\"name\" : \"HONG\", \"age\" : 20},{\"name\" : \"HWANG\", \"age\" : 30}]";
 		ToDoListDAO dao = new ToDoListDAO();
 		List<Map<String, String>> map = dao.todoList();
 		Gson gson = new GsonBuilder().create();
