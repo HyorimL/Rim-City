@@ -12,7 +12,7 @@ import co.micol.prj.member.service.MemberVO;
 public class MemberServiceImpl implements MemberService {
 	
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true); //DataSource 객체 호출
-	private MemberMapper map = sqlSession.getMapper(MemberMapper.class);		//membermapper 객체 호출
+	private MemberMapper map = sqlSession.getMapper(MemberMapper.class);		//MemberMapper 객체 호출
 
 	@Override
 	public List<MemberVO> selectMemberList() {
@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int insertMember(MemberVO vo) {
-		// TODO Auto-generated method stub
+		// 회원가입
 		return map.insertMember(vo);
 	}
 

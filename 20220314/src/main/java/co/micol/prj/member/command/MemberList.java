@@ -13,8 +13,8 @@ public class MemberList implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 
-		MemberService memberDao = new MemberServiceImpl();
-		request.setAttribute("members", memberDao.selectMemberList());
+		MemberService memberDao = new MemberServiceImpl(); //모델객체생성
+		request.setAttribute("members", memberDao.selectMemberList()); //모델객체에 데이터담기 요청
 
 		return "member/memberList";
 	}

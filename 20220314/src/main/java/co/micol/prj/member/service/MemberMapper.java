@@ -9,5 +9,5 @@ public interface MemberMapper {
 	int updatetMember(MemberVO vo);		//수정
 	int deleteMember(MemberVO vo);		//삭제
 	
-	boolean isIdCheck(String str); 		//아이디 중복체크
+	boolean isIdCheck(String str); 		//아이디 중복체크. 존재하면 false, 존재하지 않으면 true를 리턴하는 것이 디폴트.
 }
