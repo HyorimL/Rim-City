@@ -44,5 +44,6 @@
 		FROM MEMBER WHERE ID = #{str}
 	</select>
 
+
 	
 </mapper>

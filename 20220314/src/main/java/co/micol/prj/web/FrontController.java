@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.micol.prj.border.command.AjaxBorderSearch;
+import co.micol.prj.border.command.BorderInsert;
+import co.micol.prj.border.command.BorderInsertForm;
+import co.micol.prj.border.command.BorderList;
+import co.micol.prj.border.command.AjaxSortBorder;
+import co.micol.prj.border.command.BorderView;
 import co.micol.prj.comm.Command;
 import co.micol.prj.home.command.HomeCommand;
 import co.micol.prj.member.command.AjaxMemberIdCheck;
@@ -49,8 +55,13 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxMemberIdCheck.do", new AjaxMemberIdCheck()); // ajax로 아이디 중복체크
 		map.put("/memberJoinForm.do", new MemberJoinForm()); //회원가입 폼 호출
 		map.put("/memberJoin.do", new MemberJoin()); //회원가입
+		map.put("/borderList.do", new BorderList()); //게시글 목록
+		map.put("/borderInsertForm.do", new BorderInsertForm()); //게시글 작성폼 호출
+		map.put("/borderInsert.do", new BorderInsert()); //게시글 등록
+		map.put("/borderView.do", new BorderView()); //게시글 상세보기
+		map.put("/ajaxBorderSearch.do", new AjaxBorderSearch()); //게시글 리스트에서 검색
+		map.put("/ajaxSortBorder.do", new AjaxSortBorder()); //게시판 정렬
 	}
-
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -73,7 +84,8 @@ public class FrontController extends HttpServlet {
 				response.getWriter().append(viewPage.substring(5));
 				return;
 			} else {
-				viewPage = "WEB-INF/views/" + viewPage + ".jsp";
+				//viewPage = "WEB-INF/views/" + viewPage + ".jsp";
+				viewPage = viewPage + ".tiles";
 			}
 		}
 
