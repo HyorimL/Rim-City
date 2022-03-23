@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="js/jquery.min.js"></script>
 </head>
 <body>
 <div align="center">
